@@ -1,12 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import './Searchbar.css';
+import {
+    loadSearchResult,
+    selectSearchResult,
+    isLodingResult,
+    failedToLoadResult,
+  } from './searchSlice';
 
 function Searchbar() {
-    const [term, setTerm] = useState();
+    const dispatch = useDispatch();
+
+    const [term, setTerm] = useState('');
 
     function handleTermChange(e) {
         setTerm(e.target.value);
+    }
+
+    function handleSearch(e) {
+        dispatch(loadSearchResult(term));
     }
 
     return (
@@ -18,7 +30,7 @@ function Searchbar() {
                     placeholder="Search Reddit"
                     onChange={handleTermChange}
                     value={term} />
-                <button className="search-button">Search</button>
+                <button className="search-button" onClick={handleSearch}>Search</button>
             </div>
         </div>
     );
