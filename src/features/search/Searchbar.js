@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ReactDom from 'react-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faReddit } from "@fortawesome/free-brands-svg-icons";
 import './Searchbar.css';
 import {
     loadSearchResult,
@@ -23,7 +26,10 @@ function Searchbar() {
 
     return (
         <div className="search-div">
-            <h1>Reddit Clone</h1>
+            <div className="website-title">
+                <FontAwesomeIcon className="reddit-icon" icon={faReddit} />
+                <h1>Reddit Clone</h1>
+            </div>
             <div className="search-container">
                 <input type='text' 
                     className="searchbar" 

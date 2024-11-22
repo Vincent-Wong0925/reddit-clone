@@ -23,7 +23,17 @@
     padding: .3rem;
 }
 
-h1 {
+.website-title {
     position: absolute;
     left: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.website-title h1 {
+    margin-left: .5rem;
+}
+
+.reddit-icon {
+    font-size: 2rem;
 }
