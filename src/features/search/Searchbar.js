@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ReactDom from 'react-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReddit } from "@fortawesome/free-brands-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import './Searchbar.css';
 import {
     loadSearchResult,
@@ -36,7 +37,9 @@ function Searchbar() {
                     placeholder="Search Reddit"
                     onChange={handleTermChange}
                     value={term} />
-                <button className="search-button" onClick={handleSearch}>Search</button>
+                <button className="search-button" onClick={handleSearch}>
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                </button>
             </div>
         </div>
     );
