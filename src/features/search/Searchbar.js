@@ -8,7 +8,7 @@ import './Searchbar.css';
 import {
     loadSearchResult,
     selectSearchResult,
-    isLodingResult,
+    isLoadingResult,
     failedToLoadResult,
   } from './searchSlice';
 

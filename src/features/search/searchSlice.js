@@ -13,28 +13,28 @@ export const searchSlice = createSlice({
     name: 'search',
     initialState: {
         searchResult: {},
-        isLodingResult: false,
+        isLoadingResult: false,
         failedToLoadResult: false
     },
     reducers: {},
     extraReducers: {
         [loadSearchResult.pending]: (state, action) => {
-            state.isLodingResult = true;
+            state.isLoadingResult = true;
             state.failedToLoadResult = false;
         },
         [loadSearchResult.fulfilled]: (state, action) => {
-            state.isLodingResult = false;
+            state.isLoadingResult = false;
             state.failedToLoadResult = false;
             console.log(action.payload);
         },
         [loadSearchResult.rejected]: (state, action) => {
-            state.isLodingResult = false;
+            state.isLoadingResult = false;
             state.failedToLoadResult = true;
         }
     }
 });
 
 export const selectSearchResult = (state) => state.search.searchResult;
-export const isLodingResult = (state) => state.search.isLodingResult;
+export const isLoadingResult = (state) => state.search.isLoadingResult;
 export const failedToLoadResult = (state) => state.search.failedToLoadResult;
 export default searchSlice.reducer;
