@@ -1,8 +1,8 @@
 import React from "react";
 import './Subreddit.css';
 
-function SubredditList() {
+function SubredditsList() {
     
 }
 
-export default SubredditList;
+export default SubredditsList;
