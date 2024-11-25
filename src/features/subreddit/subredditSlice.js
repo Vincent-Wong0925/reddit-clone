@@ -36,15 +36,7 @@ export const subredditSlice = createSlice({
         [loadSubredditsList.fulfilled]: (state, action) => {
             state.isLoadingSubreddit = false;
             state.failedToLoadSubreddit = false;
-            action.payload.data.children.forEach(subreddit => {
-                const { display_name, display_name_prefixed, url, icon_img, id} = subreddit.data;
-                state.subredditsList.push({
-                    name: display_name_prefixed,
-                    url: url,
-                    icon: icon_img ,
-                    id: id
-                });
-            });
+            state.subredditsList = action.payload.data.children;
         },
         [loadSubredditsList.rejected]: (state, action) => {
             state.isLoadingSubreddit = false;

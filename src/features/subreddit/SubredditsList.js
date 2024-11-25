@@ -24,13 +24,15 @@ function SubredditsList() {
 
     return (
         <div className="SubredditsList">
-            {subredditsList.map(subreddit => 
-                <Subreddit 
+            {subredditsList.map(subreddit => { 
+                const {display_name_prefixed, url, icon_img, id} = subreddit.data;
+                return <Subreddit 
                     className="Subreddit"
-                    name={subreddit.name} 
-                    url={subreddit.url} 
-                    icon={subreddit.icon} />
-                )
+                    name={display_name_prefixed} 
+                    url={url} 
+                    icon={icon_img}
+                    key={id} />
+                })
             }
         </div>
     );
