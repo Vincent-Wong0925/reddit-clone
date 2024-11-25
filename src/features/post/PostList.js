@@ -5,6 +5,7 @@ import { loadPost,
         isLoadingPost,
         selectPost } from "./postSlice";
 import Post from "./Post";
+import './post.css';
 
 function PostList() {
     const dispatch = useDispatch();

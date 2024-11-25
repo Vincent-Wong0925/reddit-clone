@@ -8,8 +8,10 @@ function App() {
   return (
     <>
       <Searchbar />
-      <SubredditsList />
-      <PostList />
+      <div className='content-container'>
+        <SubredditsList />
+        <PostList />
+      </div>
     </>
   );
 }

@@ -1,10 +1,19 @@
 .SubredditsList {
-    border: 1px red solid;
+    border-right: 1px gray solid;
+
 }
 
 .subreddit-button {
     display: flex;
     align-items: center;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.subreddit-button:hover {
+    background-color: lightgray;
 }
 
 .subreddit-icon {

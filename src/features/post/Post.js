@@ -1,4 +1,5 @@
 import React from "react";
+import './post.css';
 
 function Post({post}) {
     const {title, selftext} = post;
