@@ -3,3 +3,62 @@
     padding: 0 .5rem;
     border: 1px gray solid;
 }
+
+.post-footer {
+    display: flex;
+    margin-bottom: .5rem;
+}
+
+.votes {
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    padding: .5rem;
+    border-radius: 1.5rem;
+    margin: 0 .5rem;
+}
+
+.votes p {
+    margin: 0;
+}
+
+.vote-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.up:hover {
+    color: orangered;
+}
+
+.down:hover {
+    color: blue;
+}
+
+.vote-icon {
+    height: 1rem;
+}
+
+.comments {
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    padding: .5rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+}
+
+.comments:hover {
+    background-color: gray;
+}
+
+.comments-icon {
+    margin-right: .5rem;
+    height: 1rem;
+}
+
+.comments p {
+    margin: 0;
+}
