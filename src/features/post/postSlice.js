@@ -12,7 +12,7 @@ export const loadPost = createAsyncThunk(
 export const postSlice = createSlice({
     name: "post",
     initialState: {
-        post: [],
+        posts: [],
         isLoadingPost: false,
         failedToLoadPost: false
     },
@@ -25,8 +25,8 @@ export const postSlice = createSlice({
         [loadPost.fulfilled]: (state, action) => {
             state.isLoadingPost = false;
             state.failedToLoadPost = false;
-            state.post = action.payload.data.children;
-            console.log(state.post);
+            state.posts = action.payload.data.children;
+            console.log(state.posts);
         },
         [loadPost.rejected]: (state, action) => {
             state.isLoadingPost = false;
@@ -35,7 +35,7 @@ export const postSlice = createSlice({
     }
 });
 
-export const selectPost = (state) => state.post.post;
+export const selectPost = (state) => state.post.posts;
 export const isLoadingPost = (state) => state.post.isLoadingPost;
 
 export default postSlice.reducer;
