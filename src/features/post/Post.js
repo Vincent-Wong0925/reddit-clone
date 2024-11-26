@@ -5,6 +5,7 @@ import { faCircleUp, faCircleDown } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUp as farCircleUp, 
         faCircleDown as farCircleDown,
         faComment } from "@fortawesome/free-regular-svg-icons";
+import { useState } from "react";
 
 function Post({post}) {
     const {
@@ -18,7 +19,29 @@ function Post({post}) {
         media
     } = post;
 
+    const [upVotes, setUpVotes] = useState(ups);
+
     const defaultThumbnail = ['self', 'default', 'nsfw'];
+
+    function upVote(e) {
+        if (e.currentTarget.getAttribute('class') == 'up vote-button') {
+            setUpVotes(upVotes + 1);
+            e.currentTarget.setAttribute('class', 'active up vote-button');
+        } else if (e.currentTarget.getAttribute('class') == 'active up vote-button') {
+            setUpVotes(upVotes - 1);
+            e.currentTarget.setAttribute('class', 'up vote-button');
+        }
+    }
+
+    function downVote(e) {
+        if (e.currentTarget.getAttribute('class') == 'down vote-button') {
+            setUpVotes(upVotes - 1);
+            e.currentTarget.setAttribute('class', 'active down vote-button');
+        } else if (e.currentTarget.getAttribute('class') == 'active down vote-button') {
+            setUpVotes(upVotes + 1);
+            e.currentTarget.setAttribute('class', 'down vote-button');
+        }
+    }
 
     return (
         <div className="post">
@@ -38,12 +61,12 @@ function Post({post}) {
             }
             <div className="post-footer">
                 <div className="votes">
-                    <button className="up vote-button">
-                        <FontAwesomeIcon className="vote-icon" icon={farCircleUp} />
+                    <button className="up vote-button" onClick={upVote}>
+                        <FontAwesomeIcon className="vote-icon" icon={upVotes > ups ? faCircleUp : farCircleUp} />
                     </button>
-                    <p>{ups}</p>
-                    <button className="down vote-button">
-                        <FontAwesomeIcon className="vote-icon" icon={farCircleDown} />
+                    <p>{upVotes}</p>
+                    <button className="down vote-button" onClick={downVote}>
+                        <FontAwesomeIcon className="vote-icon" icon={upVotes < ups ? faCircleDown : farCircleDown} />
                     </button>
                 </div>
                 <button className="comments">

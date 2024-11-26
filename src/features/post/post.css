@@ -50,6 +50,15 @@
 
 .vote-icon {
     height: 1rem;
+    --fa-style: 'solid';
+}
+
+.active.up .vote-icon {
+    color: orangered;
+}
+
+.active.down .vote-icon {
+    color: blue;
 }
 
 .comments {
