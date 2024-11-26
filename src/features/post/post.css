@@ -4,6 +4,18 @@
     border: 1px gray solid;
 }
 
+.thumbnail {
+    width: 100%;
+    max-height: 20rem;
+    object-fit: contain;
+}
+
+.reddit-video {
+    width: 100%;
+    max-height: 20rem;
+    object-fit: contain;
+}
+
 .post-footer {
     display: flex;
     margin-bottom: 1rem;
