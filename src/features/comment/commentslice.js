@@ -29,7 +29,7 @@ export const commentSlice = createSlice({
             state.isLoadingComments = false;
             state.failedToLoadComments = false;
             state.comments[action.payload.id] = action.payload.json[1].data.children;
-            console.log(state.comments[action.payload.id]);
+            console.log(action.payload.json);
         },
         [loadComments.rejected]: (state, action) => {
             state.isLoadingComments = false;
@@ -39,4 +39,5 @@ export const commentSlice = createSlice({
 });
 
 export const selectComments = (state) => state.comment.comments;
+export const isLoadingComments = (state) => state.comment.isLoadingComments;
 export default commentSlice.reducer;

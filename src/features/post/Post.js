@@ -6,8 +6,9 @@ import { faCircleUp as farCircleUp,
         faCircleDown as farCircleDown,
         faComment } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loadComments } from "../comment/commentslice";
+import { useDispatch, useSelector } from "react-redux";
+import { loadComments, selectComments, isLoadingComments } from "../comment/commentslice";
+import CommentList from "../comment/CommentList";
 
 function Post({post}) {
     const {
@@ -27,6 +28,8 @@ function Post({post}) {
 
     const defaultThumbnail = ['self', 'default', 'nsfw'];
     const dispatch = useDispatch();
+    const comments = useSelector(selectComments);
+    const loadingComments = useSelector(isLoadingComments);
 
     function upVote(e) {
         if (e.currentTarget.getAttribute('class') === 'up vote-button') {
@@ -86,6 +89,13 @@ function Post({post}) {
                     <p>Comments</p>
                 </button>
             </div>
+            {
+                loadingComments ? 
+                <div>Loading Comments...</div> :
+                comments[id] ? 
+                <CommentList id={id} comments={comments[id]} /> : 
+                null
+            }
         </div>
     );
 }
