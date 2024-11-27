@@ -6,6 +6,8 @@ import { faCircleUp as farCircleUp,
         faCircleDown as farCircleDown,
         faComment } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loadComments } from "../comment/commentslice";
 
 function Post({post}) {
     const {
@@ -16,31 +18,41 @@ function Post({post}) {
         subreddit_name_prefixed,
         thumbnail,
         is_video,
-        media
+        media,
+        permalink,
+        id
     } = post;
 
     const [upVotes, setUpVotes] = useState(ups);
 
     const defaultThumbnail = ['self', 'default', 'nsfw'];
+    const dispatch = useDispatch();
 
     function upVote(e) {
-        if (e.currentTarget.getAttribute('class') == 'up vote-button') {
+        if (e.currentTarget.getAttribute('class') === 'up vote-button') {
             setUpVotes(upVotes + 1);
             e.currentTarget.setAttribute('class', 'active up vote-button');
-        } else if (e.currentTarget.getAttribute('class') == 'active up vote-button') {
+        } else if (e.currentTarget.getAttribute('class') === 'active up vote-button') {
             setUpVotes(upVotes - 1);
             e.currentTarget.setAttribute('class', 'up vote-button');
         }
     }
 
     function downVote(e) {
-        if (e.currentTarget.getAttribute('class') == 'down vote-button') {
+        if (e.currentTarget.getAttribute('class') === 'down vote-button') {
             setUpVotes(upVotes - 1);
             e.currentTarget.setAttribute('class', 'active down vote-button');
-        } else if (e.currentTarget.getAttribute('class') == 'active down vote-button') {
+        } else if (e.currentTarget.getAttribute('class') === 'active down vote-button') {
             setUpVotes(upVotes + 1);
             e.currentTarget.setAttribute('class', 'down vote-button');
         }
+    }
+
+    function showComments(e) {
+        dispatch(loadComments({
+            id: id, 
+            permalink: permalink.replace(/\/$/, "")
+        }));
     }
 
     return (
@@ -56,7 +68,7 @@ function Post({post}) {
                     Video cannot be played.
                 </video> :
                 thumbnail !== "" && !defaultThumbnail.includes(thumbnail)?
-                <img className="thumbnail" src={thumbnail} /> :
+                <img className="thumbnail" src={thumbnail} alt="thumbnail" /> :
                 null
             }
             <div className="post-footer">
@@ -69,7 +81,7 @@ function Post({post}) {
                         <FontAwesomeIcon className="vote-icon" icon={upVotes < ups ? faCircleDown : farCircleDown} />
                     </button>
                 </div>
-                <button className="comments">
+                <button className="comments" onClick={showComments}>
                     <FontAwesomeIcon className="comments-icon" icon={faComment} />
                     <p>Comments</p>
                 </button>

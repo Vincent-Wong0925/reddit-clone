@@ -12,7 +12,7 @@ function PostList() {
     const posts = useSelector(selectPost);
     const loadingPost = useSelector(isLoadingPost);
 
-    useEffect(() => {dispatch(loadPost('top'))},[]);
+    useEffect(() => {dispatch(loadPost('top'))},[dispatch]);
 
     if (loadingPost) {
         return <div>Loading post...</div>
@@ -24,7 +24,7 @@ function PostList() {
 
     return (
         <div className="PostList">
-            {posts.map(post => <Post post={post.data}/>)}
+            {posts.map(post => <Post post={post.data} id={post.data.id} />)}
         </div>
     );
 }
