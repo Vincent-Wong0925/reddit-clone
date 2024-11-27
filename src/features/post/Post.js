@@ -25,6 +25,7 @@ function Post({post}) {
     } = post;
 
     const [upVotes, setUpVotes] = useState(ups);
+    const [commentsVisible, setCommentVisible] = useState(false);
 
     const defaultThumbnail = ['self', 'default', 'nsfw'];
     const dispatch = useDispatch();
@@ -52,10 +53,15 @@ function Post({post}) {
     }
 
     function showComments(e) {
-        dispatch(loadComments({
-            id: id, 
-            permalink: permalink.replace(/\/$/, "")
-        }));
+        if (commentsVisible) {
+            setCommentVisible(false);
+        } else {
+            setCommentVisible(true);
+            dispatch(loadComments({
+                id: id, 
+                permalink: permalink.replace(/\/$/, "")
+            }));
+        }
     }
 
     return (
@@ -90,6 +96,8 @@ function Post({post}) {
                 </button>
             </div>
             {
+                !commentsVisible ?
+                null :
                 loadingComments ? 
                 <div>Loading Comments...</div> :
                 comments[id] ? 

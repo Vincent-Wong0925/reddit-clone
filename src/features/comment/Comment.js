@@ -1,4 +1,5 @@
 import React from "react";
+import './comment.css';
 
 function Comment({comment}) {
     const {kind} = comment;
@@ -9,7 +10,7 @@ function Comment({comment}) {
     }
 
     return (
-        <div>
+        <div className="Comment">
             <h4>u/{author}</h4>
             <p>{body}</p>
         </div>
