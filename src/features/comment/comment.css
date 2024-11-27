@@ -1,0 +1,4 @@
+.CommentList {
+    max-height: 30rem;
+    overflow: auto;
+}
