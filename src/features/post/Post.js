@@ -101,7 +101,7 @@ function Post({post}) {
                 loadingComments ? 
                 <div>Loading Comments...</div> :
                 comments[id] ? 
-                <CommentList id={id} comments={comments[id]} /> : 
+                <CommentList id={id} comments={comments[id]} nested={false} /> : 
                 null
             }
         </div>

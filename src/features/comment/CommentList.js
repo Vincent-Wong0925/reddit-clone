@@ -4,11 +4,12 @@ import './comment.css';
 
 function CommentList({
     id,
-    comments
+    comments,
+    nested
 }) {
 
     return (
-        <div className="CommentList">
+        <div className={nested ? "nested CommentList" : "CommentList"}>
             {comments.map(comment => <Comment id={id} comment={comment} />)}
         </div>
     );

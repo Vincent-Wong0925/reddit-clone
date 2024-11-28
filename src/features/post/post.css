@@ -1,5 +1,5 @@
 .post {
-    margin: .5rem;
+    margin: 1.5rem;
     padding: 0 .5rem;
     border: 1px gray solid;
 }
@@ -59,27 +59,4 @@
 
 .active.down .vote-icon {
     color: blue;
-}
-
-.comments {
-    border: none;
-    display: flex;
-    align-items: center;
-    background-color: lightgray;
-    padding: .5rem;
-    border-radius: 1.5rem;
-    cursor: pointer;
-}
-
-.comments:hover {
-    background-color: gray;
-}
-
-.comments-icon {
-    margin-right: .5rem;
-    height: 1rem;
-}
-
-.comments p {
-    margin: 0;
 }
