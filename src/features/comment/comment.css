@@ -35,3 +35,11 @@
 .comments p {
     margin: 0;
 }
+
+.replies-button {
+    border: none;
+    background-color: lightgray;
+    padding: .5rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+}
