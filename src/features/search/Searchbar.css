@@ -11,16 +11,29 @@
 .search-container {
     display: flex;
     align-items: center;
+    background-color: lightgray;
+    border-radius: 1.5rem;
+    padding: .5rem;
 }
 
 .searchbar {
     font-size: 1.2rem;
     padding: .3rem;
+    background-color: transparent;
+    border: none;
+    width: 30rem;
+}
+
+.searchbar:focus {
+    outline: none;
 }
 
 .search-button {
     font-size: 1.2rem;
     padding: .3rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .website-title {
