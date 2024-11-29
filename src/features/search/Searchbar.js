@@ -28,8 +28,8 @@ function Searchbar() {
     return (
         <div className="search-div">
             <div className="website-title">
-                <FontAwesomeIcon className="reddit-icon" icon={faReddit} />
-                <h1>Reddit Clone</h1>
+                <FontAwesomeIcon className="blue reddit-icon" icon={faReddit} />
+                <h1><span className="blue">Reddit</span> Clone</h1>
             </div>
             <div className="search-container">
                 <input type='text' 
