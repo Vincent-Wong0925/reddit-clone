@@ -1,6 +1,9 @@
 .SubredditsList {
     border-right: 1px gray solid;
-
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    padding: .5rem;
 }
 
 .subreddit-button {

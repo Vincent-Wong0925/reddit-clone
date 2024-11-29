@@ -1,11 +1,12 @@
 .search-div {
     width: 100%;
     display: flex;
-    position: relative;
+    position: fixed;
     justify-content: center;
     align-items: center;
     border-bottom: 1px gray solid;
     padding: 1rem 0;
+    background-color: white;
 }
 
 .search-container {
