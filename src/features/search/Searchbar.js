@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ReactDom from 'react-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReddit } from "@fortawesome/free-brands-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
 import './Searchbar.css';
 import {
     loadSearchResult,
@@ -12,7 +12,7 @@ import {
     failedToLoadResult,
   } from '../post/postSlice';
 
-function Searchbar() {
+function Searchbar({toggleSubreddits}) {
     const dispatch = useDispatch();
 
     const [term, setTerm] = useState('');
@@ -45,6 +45,9 @@ function Searchbar() {
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>
+            <button className="menu-button" onClick={toggleSubreddits}>
+                <FontAwesomeIcon icon={faBars} />
+            </button>
         </div>
     );
 }

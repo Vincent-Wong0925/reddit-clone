@@ -7,12 +7,12 @@ import { loadSubredditsList,
         isLoadingSubreddit } from "./subredditSlice";
 import Subreddit from "./Subreddit";
 
-function SubredditsList() {
+function SubredditsList({showSubreddits}) {
     const dispatch = useDispatch();
     const subredditsList = useSelector(selectSubredditsList);
     const LoadingSubreddit = useSelector(isLoadingSubreddit);
 
-    useEffect(() => {dispatch(loadSubredditsList())},[]);
+    useEffect(() => {dispatch(loadSubredditsList())},[dispatch]);
 
     if (LoadingSubreddit) {
         return <div>Loading...</div>;
@@ -23,7 +23,7 @@ function SubredditsList() {
     }
 
     return (
-        <div className="SubredditsList">
+        <div className="SubredditsList" style={!showSubreddits ? {visibility: 'hidden'} : null}>
             {subredditsList.map(subreddit => { 
                 const {display_name_prefixed, url, icon_img, id} = subreddit.data;
                 return <Subreddit 

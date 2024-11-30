@@ -4,6 +4,7 @@
     height: 100%;
     overflow: auto;
     padding: .5rem;
+    z-index: 5;
 }
 
 .subreddit-button {
@@ -22,4 +23,11 @@
 .subreddit-icon {
     height: 1.5rem;
     margin-right: .5rem;
+}
+
+@media only screen and (max-width: 850px) {
+    .SubredditsList {
+        position: relative;
+        visibility: inherit;
+    }
 }

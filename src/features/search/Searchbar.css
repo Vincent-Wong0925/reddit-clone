@@ -7,6 +7,8 @@
     border-bottom: 1px gray solid;
     padding: 1rem 0;
     background-color: white;
+    z-index: 10;
+    top: 0;
 }
 
 .search-container {
@@ -15,6 +17,7 @@
     background-color: lightgray;
     border-radius: 1.5rem;
     padding: .5rem;
+    width: 40%;
 }
 
 .searchbar {
@@ -22,7 +25,7 @@
     padding: .3rem;
     background-color: transparent;
     border: none;
-    width: 30rem;
+    width: 100%;
 }
 
 .searchbar:focus {
@@ -52,6 +55,40 @@
     font-size: 2rem;
 }
 
+.menu-button {
+    position: absolute;
+    font-size: 2rem;
+    left: 1rem;
+    bottom: 1rem;
+    background-color: transparent;
+    border: none;
+    visibility: hidden;
+    cursor: pointer;
+}
+
 .blue {
     color: blue;
+}
+
+@media only screen and (max-width: 850px) {
+    .search-div {
+        flex-direction: column;
+    }
+
+    .website-title {
+        position: relative;
+        margin: .5rem;
+    }
+
+    .website-title h1 {
+        margin: 0;
+    }
+
+    .search-container {
+        width: 60%;
+    }
+
+    .menu-button {
+        visibility: visible;
+    }
 }
