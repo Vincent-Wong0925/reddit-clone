@@ -10,7 +10,7 @@ import {
     selectSearchResult,
     isLoadingResult,
     failedToLoadResult,
-  } from './searchSlice';
+  } from '../post/postSlice';
 
 function Searchbar() {
     const dispatch = useDispatch();
@@ -22,7 +22,11 @@ function Searchbar() {
     }
 
     function handleSearch(e) {
+        if (term.length === 0) {
+            return;
+        }
         dispatch(loadSearchResult(term));
+        setTerm('');
     }
 
     return (

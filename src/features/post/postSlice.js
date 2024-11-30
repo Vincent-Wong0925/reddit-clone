@@ -9,12 +9,23 @@ export const loadPost = createAsyncThunk(
     }
 );
 
+export const loadSearchResult = createAsyncThunk(
+    'postSlice/loadSearchResult',
+    async (term) => {
+        const response = await fetch(`https://www.reddit.com/search.json?q=${term}`);
+        const json = await response.json();
+        return json;
+    }
+);
+
 export const postSlice = createSlice({
     name: "post",
     initialState: {
         posts: [],
         isLoadingPost: false,
-        failedToLoadPost: false
+        failedToLoadPost: false,
+        isLoadingResult: false,
+        failedToLoadResult: false
     },
     reducers: {},
     extraReducers: {
@@ -26,11 +37,23 @@ export const postSlice = createSlice({
             state.isLoadingPost = false;
             state.failedToLoadPost = false;
             state.posts = action.payload.data.children;
-            console.log(state.posts);
         },
         [loadPost.rejected]: (state, action) => {
             state.isLoadingPost = false;
             state.failedToLoadPost = true;
+        },
+        [loadSearchResult.pending]: (state, action) => {
+            state.isLoadingResult = true;
+            state.failedToLoadResult = false;
+        },
+        [loadSearchResult.fulfilled]: (state, action) => {
+            state.isLoadingResult = false;
+            state.failedToLoadResult = false;
+            state.posts = action.payload.data.children;
+        },
+        [loadSearchResult.rejected]: (state, action) => {
+            state.isLoadingResult = false;
+            state.failedToLoadResult = true;
         }
     }
 });

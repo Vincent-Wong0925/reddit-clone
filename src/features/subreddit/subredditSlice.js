@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { isLodingResult } from "../search/searchSlice";
 
 export const loadSubredditsList = createAsyncThunk(
     'subredditSlice/loadSubredditsList',
@@ -9,16 +8,6 @@ export const loadSubredditsList = createAsyncThunk(
         return json;
     }
 );
-
-/*
-{
-    DISPLAY_NAME: {
-        name: DISPLAY_NAME_PREFIXED,
-        url: URL,
-        icon: ICON_IMG
-    }
-}
-*/
 
 export const subredditSlice = createSlice({
     name: 'subreddit',
