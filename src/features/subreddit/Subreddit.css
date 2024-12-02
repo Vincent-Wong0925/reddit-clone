@@ -5,6 +5,7 @@
     overflow: auto;
     padding: .5rem;
     z-index: 5;
+    background-color: white;
 }
 
 .subreddit-button {
@@ -26,8 +27,7 @@
 }
 
 @media only screen and (max-width: 850px) {
-    .SubredditsList {
-        position: relative;
-        visibility: inherit;
+    .hidden {
+        visibility: hidden;
     }
 }

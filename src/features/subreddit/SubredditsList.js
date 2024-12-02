@@ -23,7 +23,7 @@ function SubredditsList({showSubreddits}) {
     }
 
     return (
-        <div className="SubredditsList" style={!showSubreddits ? {visibility: 'hidden'} : null}>
+        <div className={showSubreddits ? "SubredditsList" : "hidden SubredditsList"}>
             {subredditsList.map(subreddit => { 
                 const {display_name_prefixed, url, icon_img, id} = subreddit.data;
                 return <Subreddit 
