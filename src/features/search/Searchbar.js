@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import ReactDom from 'react-dom';
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faReddit } from "@fortawesome/free-brands-svg-icons";
 import { faMagnifyingGlass, faBars } from "@fortawesome/free-solid-svg-icons";
 import './Searchbar.css';
 import {
     loadSearchResult,
-    selectSearchResult,
-    isLoadingResult,
-    failedToLoadResult,
   } from '../post/postSlice';
 
 function Searchbar({toggleSubreddits}) {
@@ -32,7 +28,9 @@ function Searchbar({toggleSubreddits}) {
     return (
         <div className="search-div">
             <div className="website-title">
-                <FontAwesomeIcon className="blue reddit-icon" icon={faReddit} />
+                <FontAwesomeIcon 
+                    className="blue reddit-icon" icon={faReddit}
+                    title='reddit-icon' />
                 <h1><span className="blue">Reddit</span> Clone</h1>
             </div>
             <div className="search-container">
@@ -41,7 +39,7 @@ function Searchbar({toggleSubreddits}) {
                     placeholder="Search Reddit"
                     onChange={handleTermChange}
                     value={term} />
-                <button className="search-button" onClick={handleSearch}>
+                <button className="search-button" aria-label="search button" onClick={handleSearch}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>
