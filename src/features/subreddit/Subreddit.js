@@ -13,10 +13,10 @@ function Subreddit({name, icon}) {
     }
 
     return (
-        <button className="subreddit-button" onClick={changeSubreddit}>
+        <button className="subreddit-button" onClick={changeSubreddit} data-testid='Subreddit'>
             {icon !== "" ? 
             <img className="subreddit-icon" src={icon} alt="subreddit icon" /> : 
-            <FontAwesomeIcon className="subreddit-icon" icon={faRedditAlien} />}
+            <FontAwesomeIcon className="subreddit-icon" icon={faRedditAlien} data-testid='default-SubredditIcon' />}
             <p className="subreddit-name">{name}</p>
         </button>
     );
