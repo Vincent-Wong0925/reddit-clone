@@ -19,7 +19,7 @@ export const subredditSlice = createSlice({
     reducers: {},
     extraReducers: {
         [loadSubredditsList.pending]: (state, action) => {
-            state.isLodingResult = true;
+            state.isLoadingSubreddit = true;
             state.failedToLoadSubreddit = false;
         },
         [loadSubredditsList.fulfilled]: (state, action) => {

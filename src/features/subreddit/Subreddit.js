@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { loadPost } from "../post/postSlice";
 
-function Subreddit({name, url, icon}) {
+function Subreddit({name, icon}) {
     const dispatch = useDispatch();
 
     function changeSubreddit(e) {

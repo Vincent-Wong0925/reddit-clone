@@ -15,21 +15,20 @@ function SubredditsList({showSubreddits}) {
     useEffect(() => {dispatch(loadSubredditsList())},[dispatch]);
 
     if (LoadingSubreddit) {
-        return <div>Loading...</div>;
+        return <div data-testid='SubredditsList'>Loading...</div>;
     }
 
-    if (!subredditsList) {
+    if (subredditsList.length == 0) {
         return null;
     }
 
     return (
-        <div className={showSubreddits ? "SubredditsList" : "hidden SubredditsList"}>
+        <div className={showSubreddits ? "SubredditsList" : "hidden SubredditsList"} data-testid='SubredditsList'>
             {subredditsList.map(subreddit => { 
-                const {display_name_prefixed, url, icon_img, id} = subreddit.data;
+                const {display_name_prefixed, icon_img, id} = subreddit.data;
                 return <Subreddit 
                     className="Subreddit"
                     name={display_name_prefixed} 
-                    url={url} 
                     icon={icon_img}
                     key={id} />
                 })
