@@ -80,7 +80,7 @@ describe(SubredditsList, () => {
         const expectedState = [];
 
         global.fetch = jest.fn().mockResolvedValue({
-            jest: Promise.resolve(mockResponse)
+            json: () => Promise.resolve(mockResponse)
         });
 
         render(
@@ -103,7 +103,7 @@ describe(SubredditsList, () => {
 
         global.fetch = jest.fn().mockResolvedValue(() => {
             setTimeout(() => ({
-                jest: Promise.resolve(mockResponse)
+                json: () => Promise.resolve(mockResponse)
             }), 3000);
         });
 
@@ -112,8 +112,7 @@ describe(SubredditsList, () => {
                 <SubredditsList showSubreddits={true} />
             </Provider>
         );
-        screen.debug();
-        console.log(store.getState().subreddit);
+
         expect(screen.queryByText('Loading...')).not.toBe(null);
         jest.useRealTimers();
     });
