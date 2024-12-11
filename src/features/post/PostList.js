@@ -18,13 +18,13 @@ function PostList() {
         return <div>Loading post...</div>
     }
 
-    if (!posts) {
+    if (posts == []) {
         return null;
     }
 
     return (
-        <div className="PostList">
-            {posts.map(post => <Post post={post.data} id={post.data.id} />)}
+        <div className="PostList" data-testid='PostList'>
+            {posts.map(post => <Post post={post.data} id={post.data.id} key={post.data.id} />)}
         </div>
     );
 }

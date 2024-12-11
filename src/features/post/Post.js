@@ -65,7 +65,7 @@ function Post({post}) {
     }
 
     return (
-        <div className="post">
+        <div className="post" data-testid={id}>
             <h3>{subreddit_name_prefixed}</h3>
             <p>u/{author}</p>
             <h2>{title}</h2>
