@@ -53,52 +53,52 @@ describe(Subreddit, () => {
         const mockResponse = {
             data: {
                 children: [
-                    {
+                    {data: {
                         title: 'Post 1', 
                         selftext: 'text 1', 
                         author: 'author 1',
                         ups: 1,
-                        id: 1
-                    },
-                    {
+                        id: "1"
+                    }},
+                    {data: {
                         title: 'Post 2', 
                         selftext: 'text 2', 
                         author: 'author 2',
                         ups: 2,
-                        id: 2
-                    },
-                    {
+                        id: "2"
+                    }},
+                    {data: {
                         title: 'Post 3', 
                         selftext: 'text 3', 
                         author: 'author 3',
                         ups: 3,
-                        id: 3
-                    }
+                        id: "3"
+                    }}
                 ]
             }
-        }
+        };
         const expectedState = [
-            {
+            {data: {
                 title: 'Post 1', 
                 selftext: 'text 1', 
                 author: 'author 1',
                 ups: 1,
-                id: 1
-            },
-            {
+                id: "1"
+            }},
+            {data: {
                 title: 'Post 2', 
                 selftext: 'text 2', 
                 author: 'author 2',
                 ups: 2,
-                id: 2
-            },
-            {
+                id: "2"
+            }},
+            {data: {
                 title: 'Post 3', 
                 selftext: 'text 3', 
                 author: 'author 3',
                 ups: 3,
-                id: 3
-            }
+                id: "3"
+            }}
         ];
         global.fetch = jest.fn().mockResolvedValue({
             json: () => Promise.resolve(mockResponse)
