@@ -72,8 +72,8 @@ function Post({post}) {
             <p>{selftext}</p>
             {
                 is_video?
-                <video className="reddit-video" controls>
-                    <source src={media.reddit_video.fallback_url} />
+                <video className="reddit-video" data-testid='reddit-video' controls>
+                    <source data-testid='reddit-video-source' src={media.reddit_video.fallback_url} />
                     Video cannot be played.
                 </video> :
                 thumbnail !== "" && !defaultThumbnail.includes(thumbnail)?
@@ -82,15 +82,15 @@ function Post({post}) {
             }
             <div className="post-footer">
                 <div className="votes">
-                    <button className="up vote-button" onClick={upVote}>
+                    <button className="up vote-button" data-testid='up vote-button' onClick={upVote}>
                         <FontAwesomeIcon className="vote-icon" icon={upVotes > ups ? faCircleUp : farCircleUp} />
                     </button>
-                    <p>{upVotes}</p>
-                    <button className="down vote-button" onClick={downVote}>
+                    <p data-testid='upVotes'>{upVotes}</p>
+                    <button className="down vote-button" data-testid='down vote-button' onClick={downVote}>
                         <FontAwesomeIcon className="vote-icon" icon={upVotes < ups ? faCircleDown : farCircleDown} />
                     </button>
                 </div>
-                <button className="comments" onClick={showComments}>
+                <button className="comments" data-testid='comments button' onClick={showComments}>
                     <FontAwesomeIcon className="comments-icon" icon={faComment} />
                     <p>Comments</p>
                 </button>

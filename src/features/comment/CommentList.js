@@ -9,7 +9,7 @@ function CommentList({
 }) {
 
     return (
-        <div className={nested ? "nested CommentList" : "CommentList"}>
+        <div className={nested ? "nested CommentList" : "CommentList"} data-testid='CommentList'>
             {comments.map(comment => <Comment id={id} comment={comment} />)}
         </div>
     );
