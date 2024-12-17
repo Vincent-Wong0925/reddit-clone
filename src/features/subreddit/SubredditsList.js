@@ -18,7 +18,7 @@ function SubredditsList({showSubreddits}) {
         return <div data-testid='SubredditsList'>Loading...</div>;
     }
 
-    if (subredditsList.length == 0) {
+    if (subredditsList.length === 0) {
         return null;
     }
 

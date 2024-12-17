@@ -18,7 +18,7 @@ function PostList() {
         return <div>Loading post...</div>
     }
 
-    if (posts == []) {
+    if (posts.length === 0) {
         return null;
     }
 
