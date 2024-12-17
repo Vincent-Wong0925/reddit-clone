@@ -13,7 +13,6 @@ function Comment({comment}) {
         if (replies.length === 0) {
             replies = null;
         }
-        console.log(replies);
     }
 
     function showReplies() {
@@ -25,7 +24,7 @@ function Comment({comment}) {
     }
 
     return (
-        <div className="Comment">
+        <div className="Comment" data-testid="Comment">
             <h4>u/{author}</h4>
             <p>{body}</p>
             {replies ? <button className="replies-button" onClick={showReplies}>Replies</button> : null}
